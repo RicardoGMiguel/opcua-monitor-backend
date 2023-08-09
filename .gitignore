@@ -1,0 +1,9 @@
+.idea/
+.vscode/
+node_modules/
+frontEnd/*
+dist/
+.env
+coverage
+tmp/uploads/*
+
