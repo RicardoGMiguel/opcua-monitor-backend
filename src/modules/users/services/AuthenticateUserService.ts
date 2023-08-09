@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { sign } from 'jsonwebtoken';
 import { injectable, inject } from 'tsyringe';
 
@@ -27,7 +28,7 @@ class AuthenticateUserService {
 
     @inject('HashProvider')
     private hashProvider: IHashProvider,
-  ) {}
+  ) { }
 
   public async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.usersRepository.findByEmail(email);
@@ -43,7 +44,7 @@ class AuthenticateUserService {
 
     const { expiresIn, secret } = authConfig.jwt;
 
-    const token = sign({ isAdmin: user.isAdmin }, secret, {
+    const token = sign({}, secret, {
       subject: user.id,
       expiresIn,
     });

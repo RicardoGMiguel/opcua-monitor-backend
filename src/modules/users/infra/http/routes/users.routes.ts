@@ -1,18 +1,11 @@
-import multer from 'multer';
 import { Router } from 'express';
 import { Segments, Joi, celebrate } from 'celebrate';
 
-import uploadConfig from '@config/upload';
-
 import UsersController from '@modules/users/infra/http/controllers/UsersController';
-import UserAvatarController from '@modules/users/infra/http/controllers/UserAvatarController';
 
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
 
 const usersController = new UsersController();
-const userAvatarController = new UserAvatarController();
-
-const upload = multer(uploadConfig.multer);
 
 const usersRouter = Router();
 
@@ -46,7 +39,5 @@ usersRouter.put(
   }),
   usersController.update,
 );
-
-usersRouter.patch('/avatar', ensureAuthenticated, upload.single('file'), userAvatarController.update);
 
 export default usersRouter;

@@ -1,7 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn } from 'typeorm';
-import { Exclude, Expose } from 'class-transformer';
-
-import uploadConfig from '@config/upload';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
 @Entity('users')
 class User {
@@ -15,12 +13,6 @@ class User {
   name: string;
 
   @Column()
-  avatar: string;
-
-  @Column()
-  isAdmin: boolean;
-
-  @Column()
   @Exclude()
   password: string;
 
@@ -29,24 +21,6 @@ class User {
 
   @UpdateDateColumn()
   updated_at: Date;
-
-  @Expose({ name: 'avatar_url' })
-  getAvatarUrl(): string | null {
-    if (!this.avatar) {
-      return null;
-    }
-
-    switch (uploadConfig.driver) {
-      case 'disk':
-        return `${process.env.APP_WEB_API}/files/${this.avatar}`;
-
-      case 's3':
-        return `https://${uploadConfig.config.aws.bucket}.s3.amazonaws.com/${this.avatar}`;
-
-      default:
-        return null;
-    }
-  }
 }
 
 export default User;
