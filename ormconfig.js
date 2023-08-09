@@ -4,7 +4,7 @@ module.exports = {
   port: process.env.POSTGRES_PORT || 5432,
   username: process.env.POSTGRES_USER || 'postgres',
   password: process.env.POSTGRES_PASS || 'docker',
-  database: process.env.POSTGRES_DB || 'iot',
+  database: process.env.POSTGRES_DB || 'opcua',
   logging: false,
   entities: [
     process.env.PRODUCTION.toLowerCase().trim() === 'true'
