@@ -21,4 +21,6 @@ messagesRouter.post(
   messagesController.create,
 );
 
+messagesRouter.delete('/', ensureAuthenticated, messagesController.clearAll);
+
 export default messagesRouter;

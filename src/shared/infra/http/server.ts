@@ -5,8 +5,11 @@ import '@shared/infra/typeorm';
 import '@shared/container';
 import app from '@shared/infra/http/app/app';
 
+import mqttClient from '../mqtt/client';
+
 const port = process.env.PORT || 3001;
 
 app.listen(port, () => {
   console.log(`✔✔ Server running on ${port}!`);
+  mqttClient();
 });
