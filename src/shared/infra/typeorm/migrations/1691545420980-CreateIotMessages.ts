@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class CreateIotMessages1691545420980 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -7,19 +7,9 @@ export class CreateIotMessages1691545420980 implements MigrationInterface {
         name: 'IotMessages',
         columns: [
           { name: 'id', type: 'uuid', isPrimary: true, generationStrategy: 'uuid', default: 'uuid_generate_v4()' },
-          { name: 'device_id', type: 'uuid' },
           { name: 'value', type: 'varchar' },
           { name: 'created_at', type: 'timestamp', default: 'now()' },
           { name: 'updated_at', type: 'timestamp', default: 'now()' },
-        ],
-        foreignKeys: [
-          new TableForeignKey({
-            columnNames: ['device_id'],
-            referencedColumnNames: ['id'],
-            referencedTableName: 'devices',
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE',
-          }),
         ],
       }),
     );
