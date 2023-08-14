@@ -13,7 +13,11 @@ class MessageRepository implements IMessageRepository {
   }
 
   public async findAllMessages(): Promise<Message[]> {
-    const messages = await this.ormRepository.find();
+    const messages = await this.ormRepository.find({
+      order: {
+        created_at: 'ASC',
+      },
+    });
 
     return messages;
   }
