@@ -198,13 +198,13 @@ Copie o comando gerado no terminal e execute-o
 
 ### Liberação das portas da máquina virtual
 
-Libere as portas 3001 que será utilizada para a API.
+Libere as portas 3001 que será utilizada para a API, seguindo a sequência:
 
-  vm azure > networking > add inbound port rule > destination port range = 3001
+  - vm azure > networking > add inbound port rule > destination port range = 3001 > priority = 330 > add
 
-Libere a porta 1883 que será utilizada para o broker MQTT.
+Libere a porta 1883 que será utilizada para o broker MQTT, seguindo a sequência:
 
-   vm azure > networking > add inbound port rule > destination port range = 1883
+   - vm azure > networking > add inbound port rule > destination port range = 1883 > priority = 340 > add
 
 
 
