@@ -71,7 +71,21 @@ curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 ```
 sudo apt-get install -y nodejs
 ```
+###
 
+- Instale o yarn
+
+  ```
+  sudo npm install yarn -g
+  ```
+
+  ###
+
+- Instale o pm2
+
+  ```
+  sudo npm install pm2 -g
+  ``` 
 
 
 
