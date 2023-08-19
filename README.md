@@ -56,9 +56,29 @@ Instale o broker MQTT Mosquitto
 ```
 sudo apt install -y mosquitto
 ```
+Verifique o status
 ```
 sudo systemctl status mosquitto
 ```
+Pare o processo com Ctrl+C
+
+###
+
+Instale o Node.js
+
+```
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+```
+```
+sudo apt-get install -y nodejs
+```
+
+
+
+
+
+
+
 
 
 
