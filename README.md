@@ -48,6 +48,17 @@ sudo sh get-docker.sh
 rm get-docker.sh
 ```
 
+Instale o broker MQTT Mosquitto
+
+```
+sudo apt install -y mosquitto
+```
+```
+sudo systemctl status mosquitto
+```
+
+
+
 
 
 
