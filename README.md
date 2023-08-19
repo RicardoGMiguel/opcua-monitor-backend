@@ -25,7 +25,25 @@ Durante o processo faça o download da chave ssh.
 Abra um terminal e acesse a máquina virtual criada alterando o inserindo o IP público da máquina:
 
 ```
-
   ssh -i ~/Downloads/OpcuaMonitorVM_key.pem azureuser@IP_PÙBLICO
+```
+
+### Preparação do servidor
+
+Faça a atualização
 
 ```
+sudo apt-get update
+```
+
+Instale o docker
+
+```
+sudo sh get-docker.sh
+rm get-docker.sh
+```
+
+
+
+
+
