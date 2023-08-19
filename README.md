@@ -108,6 +108,35 @@ sudo apt-get install -y nodejs
   cd
   ```
 
+  ###
+
+- Prepare o servidor para executar comandos docker como usuário normal
+
+  ```
+  sudo usermod -a -G docker $USER
+  ```
+  ```
+  exit
+  ```
+
+  ###
+
+- Entre novamente na máquina virtual com o IP público da máquina
+
+  ```
+  ssh -i ~/Downloads/OpcuaMonitorVM_key.pem azureuser@IP_PÙBLICO
+  ```
+  
+  ###
+
+- Crie um container docker para o banco de dados postgres
+
+  ```
+  docker run --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=docker -e POSTGRES_DB=opcua -p 5432:5432 -d postgres
+  ```
+
+  
+
 
 
 
