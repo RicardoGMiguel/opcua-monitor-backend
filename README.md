@@ -135,6 +135,17 @@ sudo apt-get install -y nodejs
   docker run --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=docker -e POSTGRES_DB=opcua -p 5432:5432 -d postgres
   ```
 
+  ###
+
+- Configuração do arquivo .env
+
+  ```
+  cd opcua-monitor-backend
+  ```
+  ```
+  nano .env
+  ```
+  
   
 
 
