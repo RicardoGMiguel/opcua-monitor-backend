@@ -75,95 +75,95 @@ sudo apt-get install -y nodejs
 
 - Instale o yarn
 
-  ```
-  sudo npm install yarn -g
-  ```
+```
+sudo npm install yarn -g
+```
 
 ###
 
 - Instale o pm2
 
-  ```
-  sudo npm install pm2 -g
-  ``` 
+```
+sudo npm install pm2 -g
+``` 
 
 ### Instalação do backend
 
 - Clone o repositório
 
-  ```
-  git clone https://github.com/RicardoGMiguel/opcua-monitor-backend.git
-  ```
+```
+git clone https://github.com/RicardoGMiguel/opcua-monitor-backend.git
+ ```
 ###
 
 - Instale as dependências
 
-  ```
-  cd opcua-monitor-backend
-  ```
-  ```
-  yarn
-  ```
-  ```
-  cd
-  ```
+```
+cd opcua-monitor-backend
+```
+```
+yarn
+```
+```
+cd
+```
 
-  ###
+###
 
 - Prepare o servidor para executar comandos docker como usuário normal
 
-  ```
-  sudo usermod -a -G docker $USER
-  ```
-  ```
-  exit
-  ```
+```
+sudo usermod -a -G docker $USER
+```
+```
+exit
+```
 
-  ###
+###
 
 - Entre novamente na máquina virtual com o IP público da máquina
 
-  ```
-  ssh -i ~/Downloads/OpcuaMonitorVM_key.pem azureuser@IP_PÙBLICO
-  ```
+```
+ssh -i ~/Downloads/OpcuaMonitorVM_key.pem azureuser@IP_PÙBLICO
+```
   
-  ###
+###
 
 - Crie um container docker para o banco de dados postgres
 
-  ```
-  docker run --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=docker -e POSTGRES_DB=opcua -p 5432:5432 -d postgres
-  ```
+```
+docker run --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=docker -e POSTGRES_DB=opcua -p 5432:5432 -d postgres
+```
 
-  ###
+###
 
 - Configuração do arquivo .env
 
-  ```
-  cd opcua-monitor-backend
-  ```
-  ```
-  nano .env
-  ```
-  Insira o seguinte código no arquivo .env
+```
+cd opcua-monitor-backend
+```
+```
+nano .env
+```
+Insira o seguinte código no arquivo .env
 
-  ```
-  APP_WEB_API=http://localhost:3001/api
+```
+APP_WEB_API=http://localhost:3001/api
   
-  MQTT_URL=mqtt://localhost:1883
+MQTT_URL=mqtt://localhost:1883
   
-  STORAGE_DRIVER=disk
+STORAGE_DRIVER=disk
   
-  MAIL_DRIVER=ethereal
+MAIL_DRIVER=ethereal
   
-  PRODUCTION=false
-  POSTGRES_HOST=
-  POSTGRES_PORT=
-  POSTGRES_USER=
-  POSTGRES_PASS=
-  POSTGRES_DB=
-  ```
-  <sub>Obs.: Para salvar o arquivo tecle Ctrl+O, e para sair tecle Ctrl+X</sub>
+PRODUCTION=false
+POSTGRES_HOST=
+POSTGRES_PORT=
+POSTGRES_USER=
+POSTGRES_PASS=
+POSTGRES_DB=
+```
+<sub>Obs.: Para salvar o arquivo tecle Ctrl+O, e para sair tecle Ctrl+X</sub>
 
 ###
 
@@ -172,6 +172,43 @@ sudo apt-get install -y nodejs
 ```
 yarn typeorm migration:run
 ```
+
+###
+
+- Gere os arquivos de produção do projeto
+```
+yarn build
+```
+
+###
+
+- Inicie o pm2
+
+```
+pm2 start dist/shared/infra/http/server.js --restart-delay=1000 --time
+```
+```
+pm2 save
+```
+```
+pm2 startup
+```
+
+Copie o comando gerado no terminal e execute-o
+
+### Liberação das portas da máquina virtual
+
+Libere as portas 3001 que será utilizada para a API.
+
+  vm azure > networking > add inbound port rule > destination port range = 3001
+
+Libere a porta 1883 que será utilizada para o broker MQTT.
+
+   vm azure > networking > add inbound port rule > destination port range = 1883
+
+
+
+
 
 
 
