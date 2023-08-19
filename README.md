@@ -18,7 +18,14 @@ Crie uma Máquina Virtual Ubuntu 20.04 na Azure alterando as seguintes especific
 - Image: Ubuntu Server 20.04 LTS
 - Select inbound ports: 80 (HTTP)
 
+Durante o processo faça o download da chave ssh.
+
+### Acesso à máquina virtual
+
+Abra um terminal e acesse a máquina virtual criada alterando o inserindo o IP público da máquina:
 
 ```
-  yarn
+
+  ssh -i ~/Downloads/OpcuaMonitorVM_key.pem azureuser@IP_PÙBLICO
+
 ```
