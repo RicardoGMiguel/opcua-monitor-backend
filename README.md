@@ -79,7 +79,7 @@ sudo apt-get install -y nodejs
   sudo npm install yarn -g
   ```
 
-  ###
+###
 
 - Instale o pm2
 
@@ -87,8 +87,26 @@ sudo apt-get install -y nodejs
   sudo npm install pm2 -g
   ``` 
 
+### Instalação do backend
 
+- Clone o repositório
 
+  ```
+  git clone https://github.com/RicardoGMiguel/opcua-monitor-backend.git
+  ```
+###
+
+- Instale as dependências
+
+  ```
+  cd opcua-monitor-backend
+  ```
+  ```
+  yarn
+  ```
+  ```
+  cd
+  ```
 
 
 
