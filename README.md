@@ -145,8 +145,33 @@ sudo apt-get install -y nodejs
   ```
   nano .env
   ```
+  Insira o seguinte código no arquivo .env
+
+  ```
+  APP_WEB_API=http://localhost:3001/api
   
+  MQTT_URL=mqtt://localhost:1883
   
+  STORAGE_DRIVER=disk
+  
+  MAIL_DRIVER=ethereal
+  
+  PRODUCTION=false
+  POSTGRES_HOST=
+  POSTGRES_PORT=
+  POSTGRES_USER=
+  POSTGRES_PASS=
+  POSTGRES_DB=
+  ```
+  <sub>Obs.: Para salvar o arquivo tecle Ctrl+O, e para sair tecle Ctrl+X</sub>
+
+###
+
+- Execute as migrations do banco de dados
+
+```
+yarn typeorm migration:run
+```
 
 
 
