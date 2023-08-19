@@ -30,14 +30,14 @@ Abra um terminal e acesse a máquina virtual criada alterando o inserindo o IP p
 
 ### Preparação do servidor
 
-Faça a atualização
+- Faça a atualização
 
 ```
 sudo apt-get update
 ```
 ###
 
-Instale o docker
+- Instale o docker
 
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh
@@ -51,20 +51,19 @@ rm get-docker.sh
 
 ###
 
-Instale o broker MQTT Mosquitto
+- Instale o broker MQTT Mosquitto
 
 ```
 sudo apt install -y mosquitto
 ```
-Verifique o status
 ```
 sudo systemctl status mosquitto
 ```
-Pare o processo com Ctrl+C
+<sub>Obs.: Pare o processo com Ctrl+C</sub> 
 
 ###
 
-Instale o Node.js
+- Instale o Node.js
 
 ```
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
