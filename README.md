@@ -163,18 +163,19 @@ POSTGRES_DB=
 
 ###
 
+- Gere os arquivos de produção do projeto
+```
+yarn build
+```
+
+###
+
 - Execute as migrations do banco de dados
 
 ```
 yarn typeorm migration:run
 ```
 
-###
-
-- Gere os arquivos de produção do projeto
-```
-yarn build
-```
 
 ###
 
