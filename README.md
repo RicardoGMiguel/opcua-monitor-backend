@@ -149,13 +149,9 @@ Insira o seguinte código no arquivo .env
 
 ```
 APP_WEB_API=http://localhost:3001/api
-  
 MQTT_URL=mqtt://localhost:1883
-  
 STORAGE_DRIVER=disk
-  
 MAIL_DRIVER=ethereal
-  
 PRODUCTION=true
 POSTGRES_HOST=
 POSTGRES_PORT=
